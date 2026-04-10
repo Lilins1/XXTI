@@ -32,8 +32,8 @@ const TestData = {
     authorText: "重构开发：",
     authorName: "赛博打工人",
     reauthorName: "职场NPC",
-    reauthorLink: "#",
-    authorLink: "#",
+    reauthorLink: "https://space.bilibili.com/",
+    authorLink: "https://space.bilibili.com/",
     hostText: "服务器状态：老板拔了网线",
     domainText: "归属地：你的工位",
     

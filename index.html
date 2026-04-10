@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="ui-pageTitle"></title>
+  <title id="ui-pageTitle">多元宇宙潜意识鉴定终端</title>
   <style>
     :root {
       --bg: #f6faf6;
@@ -16,14 +16,20 @@
       --accent-strong: #4d6a53;
       --shadow: 0 16px 40px rgba(47, 73, 55, 0.08);
       --radius: 22px;
+      
+      /* 枢纽主页主题色 */
+      --hub-bg: #f4f6f8;
+      --color-cbti: #0f766e;
+      --color-sbti: #b91c1c;
+      --color-hbti: #4338ca;
+      --color-srti: #6d28d9;
     }
 
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at top left, #f8fff8 0, #f6faf6 36%, #f2f7f3 100%);
+      background: radial-gradient(circle at top left, #f8fff8 0, #f6faf6 36%, #f2f7f3 100%);
       color: var(--text);
       min-height: 100vh;
     }
@@ -41,647 +47,267 @@
       box-shadow: var(--shadow);
     }
 
-    .hero {
-      padding: 28px;
+    /* =========================================
+       枢纽主页 (Selector) 专属样式
+       ========================================= */
+    .hub-header {
+      text-align: center;
+      margin-bottom: 40px;
       margin-top: 20px;
-      overflow: hidden;
-      position: relative;
+      animation: fadeInDown 0.6s ease-out;
     }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(127, 165, 134, 0.18), rgba(127, 165, 134, 0.02));
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
+    .hub-header-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--line);
       color: var(--accent-strong);
-      border: 1px solid var(--line);
-      background: var(--soft);
+      font-size: 13px;
+      font-weight: bold;
       border-radius: 999px;
-      padding: 8px 12px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
     }
-
-    h1, h2, h3, p { margin: 0; }
-    .hero h1 {
-      font-size: clamp(28px, 5vw, 52px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      max-width: 680px;
+    .hub-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2;
+      margin: 0 0 12px 0;
     }
-    .hero .sub {
-      margin-top: 14px;
+    .hub-header p {
+      font-size: 15px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
-      max-width: 720px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
-      margin-top: 24px;
-    }
-
-    .mini-panel {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #fbfefb, #f3f8f4);
-    }
-
-    .mini-panel h3 {
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
-
-    .mini-panel ul {
+      line-height: 1.6;
       margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 14px;
     }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
     }
-    .hero-minimal {
-      min-height: 48vh;
+    .hub-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+    .hub-card:nth-child(1) { animation-delay: 0.1s; }
+    .hub-card:nth-child(2) { animation-delay: 0.2s; }
+    .hub-card:nth-child(3) { animation-delay: 0.3s; }
+    .hub-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .hub-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+    }
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 6px;
+      background: var(--theme-color);
+      opacity: 0.8;
+      transition: height 0.3s ease;
+    }
+    .hub-card:hover::before { height: 10px; }
+    .hub-card-icon {
+      font-size: 42px;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease;
+    }
+    .hub-card:hover .hub-card-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .hub-card h2 {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      color: var(--theme-color);
+    }
+    .hub-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+    }
+    .hub-card-btn {
+      display: inline-flex;
       align-items: center;
-      text-align: center;
-      padding: 42px 20px;
-    }
-    .hero-minimal::after { display: none; }
-    .hero-minimal h1 {
-      max-width: none;
-      margin: 0;
-    }
-    .hero-actions-single {
       justify-content: center;
-      margin-top: 28px;
+      padding: 10px 20px;
+      background: var(--soft-color);
+      color: var(--theme-color);
+      font-weight: bold;
+      border-radius: 12px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      margin-top: auto;
+    }
+    .hub-card:hover .hub-card-btn {
+      background: var(--theme-color);
+      color: #fff;
+    }
+    .loading-text {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--accent-strong);
+      font-weight: bold;
+      font-size: 18px;
     }
 
-    button {
-      border: 0;
-      cursor: pointer;
-      transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
-      font: inherit;
+    /* =========================================
+       测试引擎通用样式
+       ========================================= */
+    .hero { padding: 28px; margin-top: 20px; overflow: hidden; position: relative; }
+    .hero::after {
+      content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px;
+      border-radius: 50%; background: linear-gradient(180deg, rgba(127, 165, 134, 0.18), rgba(127, 165, 134, 0.02));
+      pointer-events: none;
     }
+    h1, h2, h3, p { margin: 0; }
+    .hero h1 { font-size: clamp(28px, 5vw, 52px); line-height: 1.08; letter-spacing: -0.03em; max-width: 680px; }
+    
+    .hero-actions-single { justify-content: center; margin-top: 28px; gap: 12px; display: flex; flex-wrap: wrap;}
+    .hero-minimal { min-height: 48vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 42px 20px; }
+    .hero-minimal::after { display: none; }
+    .hero-minimal h1 { max-width: none; margin: 0; }
 
+    button { border: 0; cursor: pointer; transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease; font: inherit; }
     button:hover { transform: translateY(-1px); }
     button:disabled { cursor: not-allowed; opacity: 0.55; transform: none; }
 
-    .btn-primary {
-      background: var(--accent-strong);
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(77, 106, 83, 0.18);
-      font-weight: 700;
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--accent-strong);
-      padding: 14px 20px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-    }
+    .btn-primary { background: var(--accent-strong); color: #fff; padding: 14px 20px; border-radius: 14px; box-shadow: 0 12px 30px rgba(77, 106, 83, 0.18); font-weight: 700; }
+    .btn-secondary { background: #fff; color: var(--accent-strong); padding: 14px 20px; border-radius: 14px; border: 1px solid var(--line); font-weight: 700; }
+    .btn-outline { background: transparent; color: var(--muted); padding: 14px 20px; border-radius: 14px; border: 1px dashed var(--line); font-weight: bold; }
+    .btn-outline:hover { background: var(--soft); color: var(--accent-strong); }
 
     .screen { display: none; }
     .screen.active { display: block; }
 
-    .test-wrap,
-    .result-wrap {
-      margin-top: 22px;
-      padding: 22px;
-    }
+    .test-wrap, .result-wrap { margin-top: 22px; padding: 22px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    .progress { flex: 1; min-width: 240px; height: 10px; background: #edf3ee; border-radius: 999px; overflow: hidden; position: relative; }
+    .progress > span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, #97b59c, #5b7a62); border-radius: inherit; transition: width .22s ease; }
+    .progress-text { color: var(--muted); font-size: 13px; white-space: nowrap; }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
+    .question-list { display: grid; gap: 16px; }
+    .question { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: linear-gradient(180deg, #ffffff, #fbfdfb); }
+    .question-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; color: var(--muted); font-size: 12px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 10px; background: var(--soft); border: 1px solid var(--line); }
+    .question-title { font-size: 16px; line-height: 1.7; white-space: pre-wrap; }
+    .options { display: grid; gap: 10px; margin-top: 14px; }
+    .option { display: flex; align-items: flex-start; gap: 12px; padding: 14px 14px; border-radius: 14px; border: 1px solid var(--line); background: #fff; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+    .option:hover { border-color: #bcd0c1; background: #f8fcf9; }
+    .option input { margin-top: 3px; accent-color: var(--accent-strong); transform: scale(1.1); flex-shrink: 0; }
+    .option-code { font-weight: 800; color: var(--accent-strong); min-width: 22px; }
 
-    .progress {
-      flex: 1;
-      min-width: 240px;
-      height: 10px;
-      background: #edf3ee;
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
-    }
+    .actions-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; padding-top: 6px; }
+    .hint { color: var(--muted); font-size: 13px; line-height: 1.7; }
 
-    .progress > span {
-      display: block;
-      width: 0;
-      height: 100%;
-      background: linear-gradient(90deg, #97b59c, #5b7a62);
-      border-radius: inherit;
-      transition: width .22s ease;
-    }
+    .result-layout { display: grid; gap: 18px; }
+    .result-top { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: stretch; }
+    .poster-box, .type-box, .analysis-box, .dim-box, .note-box { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: linear-gradient(180deg, #ffffff, #fbfdfb); }
+    .poster-box { display: grid; grid-template-rows: 1fr auto; min-height: 280px; overflow: hidden; position: relative; background: radial-gradient(circle at top right, rgba(127,165,134,0.16), rgba(127,165,134,0) 40%), linear-gradient(180deg, #ffffff, #f7fbf8); }
+    .poster-box::after { content: ""; position: absolute; right: -46px; bottom: -46px; width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(180deg, rgba(127,165,134,0.12), rgba(127,165,134,0.01)); pointer-events: none; }
+    .poster-image { width: 100%; min-height: 220px; max-height: 460px; object-fit: contain; border-radius: 18px; background: rgba(255,255,255,0.75); position: relative; z-index: 1; }
+    .poster-box.no-image .poster-image { display: none; }
+    .poster-caption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.8; position: relative; z-index: 1; }
+    
+    .type-kicker { font-size: 12px; color: var(--accent-strong); margin-bottom: 8px; letter-spacing: .06em; }
+    .type-name { font-size: clamp(30px, 5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; }
+    .type-subname { margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .match { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 10px 14px; background: var(--soft); border: 1px solid var(--line); color: var(--accent-strong); font-weight: 700; font-size: 14px; line-height: 1.4; }
+    
+    .analysis-box h3, .dim-box h3, .note-box h3 { font-size: 16px; margin-bottom: 12px; }
+    .analysis-box p { margin: 0; color: #304034; font-size: 15px; line-height: 1.9; white-space: pre-wrap; }
+    
+    .dim-list { display: grid; gap: 12px; }
+    .dim-item { border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: #fff; }
+    .dim-item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .dim-item-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .dim-item-score { color: var(--accent-strong); font-weight: 800; font-size: 14px; white-space: nowrap; }
+    .dim-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .note-box p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 
-    .progress-text {
-      color: var(--muted);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .question-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .question {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: linear-gradient(180deg, #ffffff, #fbfdfb);
-    }
-
-    .question-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-    }
-
-    .question-title {
-      font-size: 16px;
-      line-height: 1.7;
-      white-space: pre-wrap;
-    }
-
-    .options {
-      display: grid;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .option {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
-      transition: border-color .16s ease, background .16s ease, transform .16s ease;
-    }
-
-    .option:hover {
-      border-color: #bcd0c1;
-      background: #f8fcf9;
-    }
-
-    .option input {
-      margin-top: 3px;
-      accent-color: var(--accent-strong);
-      transform: scale(1.1);
-      flex-shrink: 0;
-    }
-
-    .option-code {
-      font-weight: 800;
-      color: var(--accent-strong);
-      min-width: 22px;
-    }
-
-    .actions-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      padding-top: 6px;
-    }
-
-    .hint {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .result-hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .type-box,
-    .score-box,
-    .dim-box,
-    .top3-box,
-    .about-box {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: linear-gradient(180deg, #ffffff, #fbfdfb);
-    }
-
-    .type-kicker {
-      font-size: 12px;
-      color: var(--accent-strong);
-      margin-bottom: 8px;
-      letter-spacing: .05em;
-    }
-
-    .type-name {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .type-subname {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .match {
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 10px 14px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      color: var(--accent-strong);
-      font-weight: 700;
-    }
-
-    .type-desc {
-      margin-top: 18px;
-      line-height: 1.85;
-      font-size: 15px;
-      color: #304034;
-    }
-
-    .score-box h3,
-    .dim-box h3,
-    .top3-box h3,
-    .about-box h3 {
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-
-    .score-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .score-item {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      background: #fff;
-    }
-
-    .score-item .k {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .score-item .v {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--accent-strong);
-    }
-
-    .dim-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .dim-pill {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      background: #fff;
-    }
-
-    .dim-pill .label {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-
-    .dim-pill .value {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--accent-strong);
-    }
-
-    .top3-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .top3-item {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      background: #fff;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .top3-item strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .top3-item span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .top3-score {
-      color: var(--accent-strong);
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .about-box p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .footer-note {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .result-layout {
-      display: grid;
-      gap: 18px;
-    }
-    .result-top {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .poster-box, .type-box, .analysis-box, .dim-box, .note-box {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: linear-gradient(180deg, #ffffff, #fbfdfb);
-    }
-    .poster-box {
-      display: grid;
-      grid-template-rows: 1fr auto;
-      min-height: 280px;
-      overflow: hidden;
-      position: relative;
-      background:
-        radial-gradient(circle at top right, rgba(127,165,134,0.16), rgba(127,165,134,0) 40%),
-        linear-gradient(180deg, #ffffff, #f7fbf8);
-    }
-    .poster-box::after {
-      content: "";
-      position: absolute;
-      right: -46px;
-      bottom: -46px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(127,165,134,0.12), rgba(127,165,134,0.01));
-      pointer-events: none;
-    }
-    .poster-image {
-      width: 100%;
-      min-height: 220px;
-      max-height: 460px;
-      object-fit: contain;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.75);
-      position: relative;
-      z-index: 1;
-    }
-    .poster-box.no-image .poster-image {
-      display: none;
-    }
-    .poster-caption {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-      position: relative;
-      z-index: 1;
-    }
-    .type-kicker {
-      font-size: 12px;
-      color: var(--accent-strong);
-      margin-bottom: 8px;
-      letter-spacing: .06em;
-    }
-    .type-name {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-    .type-subname {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-    .match {
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 10px 14px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      color: var(--accent-strong);
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .analysis-box h3, .dim-box h3, .note-box h3 {
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-    .result-actions {
-      margin-top: 22px;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .analysis-box p {
-      margin: 0;
-      color: #304034;
-      font-size: 15px;
-      line-height: 1.9;
-      white-space: pre-wrap;
-    }
-    .dim-list {
-      display: grid;
-      gap: 12px;
-    }
-    .dim-item {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: #fff;
-    }
-    .dim-item-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-    .dim-item-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .dim-item-score {
-      color: var(--accent-strong);
-      font-weight: 800;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .dim-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    .note-box p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .author-box {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(180deg, #ffffff, #fbfdfb);
-      overflow: hidden;
-    }
-    .author-box summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 18px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
+    .author-box { border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, #ffffff, #fbfdfb); overflow: hidden; }
+    .author-box summary { list-style: none; cursor: pointer; padding: 18px; font-size: 16px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .author-box summary::-webkit-details-marker { display: none; }
-    .author-box summary::after {
-      content: attr(data-expand);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent-strong);
-      border: 1px solid var(--line);
-      background: var(--soft);
-      padding: 6px 10px;
-      border-radius: 999px;
-      flex-shrink: 0;
-    }
-    .author-box[open] summary::after {
-      content: attr(data-collapse);
-    }
-    .author-content {
-      border-top: 1px solid var(--line);
-      padding: 0 18px 18px;
-    }
-    .author-content p {
-      margin: 14px 0 0;
-      color: #304034;
-      font-size: 14px;
-      line-height: 1.9;
-    }
+    .author-box summary::after { content: attr(data-expand); font-size: 12px; font-weight: 700; color: var(--accent-strong); border: 1px solid var(--line); background: var(--soft); padding: 6px 10px; border-radius: 999px; flex-shrink: 0; }
+    .author-box[open] summary::after { content: attr(data-collapse); }
+    .author-content { border-top: 1px solid var(--line); padding: 0 18px 18px; }
+    .author-content p { margin: 14px 0 0; color: #304034; font-size: 14px; line-height: 1.9; }
 
-    .result-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
+    .result-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     @media (max-width: 860px) {
       .result-top { grid-template-columns: 1fr; }
-      .hero-grid, .result-hero { grid-template-columns: 1fr; }
-      .dim-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
     @media (max-width: 600px) {
       .shell { padding: 14px 12px 42px; }
-      .hero, .test-wrap, .result-wrap { padding: 16px; }
+      .hub-card { padding: 20px; }
       .hero h1 { font-size: 32px; }
-      .question-title { font-size: 15px; }
-      .dim-grid, .score-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="shell">
-    <section id="intro" class="screen active">
+
+    <section id="selector" class="screen active">
+      <header class="hub-header">
+        <div class="hub-header-badge">📡 异常脑电波已接入</div>
+        <h1>多元宇宙潜意识鉴定终端</h1>
+        <p>警告：放弃常规的 MBTI 吧，那玩意儿测不出你的牛马成色和发癫程度。<br>请选择你要跃迁的“草台班子副本”，直面你灵魂深处的真实内核。</p>
+      </header>
+
+      <div class="hub-grid" id="hubGrid">
+        <div class="hub-card" data-theme="cbti" style="--theme-color: var(--color-cbti); --soft-color: #ccfbf1;">
+          <div class="hub-card-icon">💻</div>
+          <h2>CBTI 赛博职场</h2>
+          <p><strong>测测你的“班味”浓度。</strong><br>看看你是“卷王之王”，还是绝世“背锅侠”？</p>
+          <div class="hub-card-btn">打卡上班 (测测牛马成色)</div>
+        </div>
+
+        <div class="hub-card" data-theme="sbti" style="--theme-color: var(--color-sbti); --soft-color: #fee2e2;">
+          <div class="hub-card-icon">⚔️</div>
+          <h2>SBTI 圣杯战争</h2>
+          <p><strong>测测你的隐藏职阶。</strong><br>别做梦召唤吾王了，直面潜意识灵基，看看你是冠位还是炮灰！</p>
+          <div class="hub-card-btn">灵基展开 (确认从者定位)</div>
+        </div>
+
+        <div class="hub-card" data-theme="hbti" style="--theme-color: var(--color-hbti); --soft-color: #e0e7ff;">
+          <div class="hub-card-icon">🦉</div>
+          <h2>HBTI 霍格沃茨</h2>
+          <p><strong>测测你是不是个哑炮。</strong><br>猫头鹰迷路了？来测测你到底是哪家学院的漏网之鱼。</p>
+          <div class="hub-card-btn">挥动魔杖 (窥探魔法内核)</div>
+        </div>
+
+        <div class="hub-card" data-theme="srti" style="--theme-color: var(--color-srti); --soft-color: #ede9fe;">
+          <div class="hub-card-icon">🚂</div>
+          <h2>SRTI 星穹铁道</h2>
+          <p><strong>银河街溜子直招。</strong><br>快来让星神看看你的脑回路有多清奇，阿哈看了都得点赞。</p>
+          <div class="hub-card-btn">跃迁开始 (锁定星神命途)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro" class="screen">
       <div class="hero card hero-minimal">
         <h1 id="ui-homeTitle"></h1>
-        <div class="hero-actions hero-actions-single">
+        <div class="hero-actions-single">
           <button id="startBtn" class="btn-primary"></button>
+          <button id="backHubBtnIntro" class="btn-outline">🚪 返回宇宙枢纽</button>
         </div>
         <div style="padding-top: 2rem; display: flex; flex-direction: column;">
           <span>
@@ -700,9 +326,7 @@
           <div class="progress"><span id="progressBar"></span></div>
           <div class="progress-text" id="progressText"></div>
         </div>
-
         <div id="questionList" class="question-list"></div>
-
         <div class="actions-bottom">
           <div class="hint" id="testHint"></div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
@@ -721,7 +345,6 @@
               <img id="posterImage" class="poster-image" alt="result" />
               <div id="posterCaption" class="poster-caption"></div>
             </div>
-
             <div class="type-box">
               <div class="type-kicker" id="resultModeKicker"></div>
               <div class="type-name" id="resultTypeName"></div>
@@ -729,32 +352,27 @@
               <div class="type-subname" id="resultTypeSub"></div>
             </div>
           </div>
-
           <div class="analysis-box">
             <h3 id="ui-resultSectionAnalysis"></h3>
             <p id="resultDesc"></p>
           </div>
-
           <div class="dim-box">
             <h3 id="ui-resultSectionDim"></h3>
             <div id="dimList" class="dim-list"></div>
           </div>
-
           <div class="note-box">
             <h3 id="ui-resultSectionNote"></h3>
             <p id="funNote"></p>
           </div>
-
           <details class="author-box">
             <summary id="ui-authorBoxSummary"></summary>
             <div class="author-content" id="ui-authorBoxContent"></div>
           </details>
         </div>
-
         <div class="result-actions">
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
             <button id="restartBtn" class="btn-secondary"></button>
-            <button id="toTopBtn" class="btn-primary"></button>
+            <button id="backHubBtnResult" class="btn-outline">🚪 返回宇宙枢纽</button>
           </div>
         </div>
       </div>
@@ -762,16 +380,19 @@
 
   </div>
 
-  <script src="dataCBTI.js"></script>
-
   <script>
+    // ==========================================
+    // 核心引擎与路由逻辑
+    // ==========================================
     const app = {
       shuffledQuestions: [],
       answers: {},
-      previewMode: false
+      previewMode: false,
+      currentTheme: null
     };
 
     const screens = {
+      selector: document.getElementById('selector'),
       intro: document.getElementById('intro'),
       test: document.getElementById('test'),
       result: document.getElementById('result')
@@ -783,18 +404,87 @@
     const submitBtn = document.getElementById('submitBtn');
     const testHint = document.getElementById('testHint');
 
-    // 初始化所有的 UI 文案
+    // 1. 解析 URL 参数，决定加载哪个数据
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const theme = urlParams.get('theme');
+
+      if (theme) {
+        // 如果网址带有 ?theme=xxx，则显示加载中并拉取对应 js
+        app.currentTheme = theme.toLowerCase();
+        loadThemeData(app.currentTheme);
+      } else {
+        // 默认显示大厅选择器
+        showScreen('selector');
+      }
+    });
+
+    // 2. 动态加载对应的 dataXX.js
+    function loadThemeData(theme) {
+      // 切换到加载状态
+      screens.selector.innerHTML = `<div class="loading-text">正在为您构建【${theme.toUpperCase()}】宇宙通道，请稍候...</div>`;
+      showScreen('selector');
+
+      const scriptName = `data${theme.toUpperCase()}.js`; // 例如 dataCBTI.js
+      const script = document.createElement('script');
+      script.src = scriptName;
+      
+      script.onload = () => {
+        // js 加载完毕后，TestData 全局变量已就绪
+        if (typeof TestData !== 'undefined') {
+          initUI();
+          showScreen('intro');
+        } else {
+          alert("数据加载异常，请检查文件内容！");
+          window.location.href = window.location.pathname;
+        }
+      };
+
+      script.onerror = () => {
+        alert(`跃迁失败：找不到数据文件 ${scriptName}，请确保该文件与 index.html 在同一文件夹下！`);
+        window.location.href = window.location.pathname; // 踢回大厅
+      };
+
+      document.body.appendChild(script);
+    }
+
+    // 3. 点击卡片触发刷新加载（避免 const TestData 冲突）
+    document.querySelectorAll('.hub-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const theme = card.getAttribute('data-theme');
+        // 直接刷新页面并带上参数，这是最干净的 SPA 方案，避免全局变量污染
+        window.location.href = `?theme=${theme}`;
+      });
+    });
+
+    // 返回枢纽按钮逻辑（清除参数并刷新）
+    const goHub = () => { window.location.href = window.location.pathname; };
+    document.getElementById('backHubBtnIntro').addEventListener('click', goHub);
+    document.getElementById('backHubBtnResult').addEventListener('click', goHub);
+
+    // ==========================================
+    // 以下为原版测试逻辑 (不做修改，直接继承)
+    // ==========================================
+    function showScreen(name) {
+      Object.entries(screens).forEach(([key, el]) => {
+        el.classList.toggle('active', key === name);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function initUI() {
       const ui = TestData.ui;
       document.getElementById('ui-pageTitle').textContent = ui.pageTitle;
       document.getElementById('ui-homeTitle').textContent = ui.homeTitle;
-      document.getElementById('ui-authorText').textContent = ui.authorText;
-      document.getElementById('ui-reauthorText').textContent = ui.reauthorName;
-      document.getElementById('ui-reauthorLink').href = ui.reauthorLink;
       
-      const authorLinkEle = document.getElementById('ui-authorLink');
-      authorLinkEle.textContent = ui.authorName;
-      authorLinkEle.href = ui.authorLink;
+      // 兼容补丁节点
+      if(document.getElementById('ui-authorText')) document.getElementById('ui-authorText').textContent = ui.authorText;
+      if(document.getElementById('ui-reauthorText')) document.getElementById('ui-reauthorText').textContent = ui.reauthorName;
+      if(document.getElementById('ui-reauthorLink')) document.getElementById('ui-reauthorLink').href = ui.reauthorLink;
+      if(document.getElementById('ui-authorLink')) {
+        document.getElementById('ui-authorLink').textContent = ui.authorName;
+        document.getElementById('ui-authorLink').href = ui.authorLink;
+      }
       
       document.getElementById('ui-hostText').textContent = ui.hostText;
       document.getElementById('ui-domainText').textContent = ui.domainText;
@@ -803,7 +493,6 @@
       document.getElementById('backIntroBtn').textContent = ui.btnBackToHome;
       document.getElementById('submitBtn').textContent = ui.btnSubmit;
       document.getElementById('restartBtn').textContent = ui.btnRestart;
-      document.getElementById('toTopBtn').textContent = ui.btnBackToHome2;
       
       document.getElementById('ui-resultSectionAnalysis').textContent = ui.resultSectionAnalysis;
       document.getElementById('ui-resultSectionDim').textContent = ui.resultSectionDim;
@@ -815,13 +504,7 @@
       summaryEle.setAttribute('data-collapse', ui.authorBoxCollapse);
       
       document.getElementById('ui-authorBoxContent').innerHTML = ui.authorBoxContent.map(p => `<p>${p}</p>`).join('');
-    }
-
-    function showScreen(name) {
-      Object.entries(screens).forEach(([key, el]) => {
-        el.classList.toggle('active', key === name);
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateProgress();
     }
 
     function shuffle(array) {
@@ -891,11 +574,11 @@
           updateProgress();
         });
       });
-
       updateProgress();
     }
 
     function updateProgress() {
+      if(typeof TestData === 'undefined') return;
       const visibleQuestions = getVisibleQuestions();
       const total = visibleQuestions.length;
       const done = visibleQuestions.filter(q => app.answers[q.id] !== undefined).length;
@@ -972,7 +655,13 @@
         sub = ui.calcSubDrunk;
         special = true;
       } else if (bestNormal.similarity < 60) {
-        finalType = TestData.TYPE_LIBRARY.HHHH;
+        // 注意：为兼容霍格沃茨(HBTI)将 HHHH 改为了 Joker 等兜底名称，我们直接取 TYPE_LIBRARY 的倒数第二个或约定键
+        // 安全起见，如果找不着 HHHH，则尝试 Joker 或 ALIEN
+        let bottomKey = "HHHH";
+        if(!TestData.TYPE_LIBRARY[bottomKey]) bottomKey = "Joker";
+        if(!TestData.TYPE_LIBRARY[bottomKey]) bottomKey = Object.keys(TestData.TYPE_LIBRARY)[Object.keys(TestData.TYPE_LIBRARY).length - 2];
+        
+        finalType = TestData.TYPE_LIBRARY[bottomKey];
         modeKicker = ui.calcKickerBottom;
         badge = ui.calcBadgeBottom(bestNormal.similarity);
         sub = ui.calcSubBottom;
@@ -1049,18 +738,10 @@
       showScreen('test');
     }
 
-    // 绑定事件和初始化
-    document.addEventListener('DOMContentLoaded', () => {
-      initUI();
-      updateProgress();
-    });
-
     document.getElementById('startBtn').addEventListener('click', () => startTest(false));
     document.getElementById('backIntroBtn').addEventListener('click', () => showScreen('intro'));
     document.getElementById('submitBtn').addEventListener('click', renderResult);
     document.getElementById('restartBtn').addEventListener('click', () => startTest(false));
-    document.getElementById('toTopBtn').addEventListener('click', () => showScreen('intro'));
   </script>
-
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d44d4fe6b56c4b46892c3f789d8ac0c5"}'></script></body>
+</body>
 </html>
