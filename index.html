@@ -20,7 +20,7 @@
       /* 枢纽主页主题色 */
       --hub-bg: #f4f6f8;
       --color-cbti: #0f766e;
-      --color-sbti: #b91c1c;
+      --color-hwti: #b91c1c;
       --color-hbti: #4338ca;
       --color-srti: #6d28d9;
     }
@@ -279,9 +279,9 @@
           <div class="hub-card-btn">打卡上班 (测测牛马成色)</div>
         </div>
 
-        <div class="hub-card" data-theme="sbti" style="--theme-color: var(--color-sbti); --soft-color: #fee2e2;">
+        <div class="hub-card" data-theme="hwti" style="--theme-color: var(--color-hwti); --soft-color: #fee2e2;">
           <div class="hub-card-icon">⚔️</div>
-          <h2>HBTI 圣杯战争</h2>
+          <h2>HWTI 许愿杯战争</h2>
           <p><strong>测测你的隐藏职阶。</strong><br>别做梦召唤吾王了，直面潜意识灵基，看看你是冠位还是炮灰！</p>
           <div class="hub-card-btn">灵基展开 (确认从者定位)</div>
         </div>
@@ -648,7 +648,9 @@
       let finalType, modeKicker, badge, sub, special, secondaryType = null;
 
       if (drunkTriggered) {
-        finalType = TestData.TYPE_LIBRARY.DRUNK;
+        const keys = Object.keys(TestData.TYPE_LIBRARY);
+        const drunkKey = keys[keys.length - 1]; 
+        finalType = TestData.TYPE_LIBRARY[drunkKey];
         secondaryType = bestNormal;
         modeKicker = ui.calcKickerDrunk;
         badge = ui.calcBadgeDrunk;
