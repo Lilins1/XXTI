@@ -268,7 +268,7 @@
       <header class="hub-header">
         <div class="hub-header-badge">📡 异常脑电波已接入</div>
         <h1>多元宇宙潜意识鉴定终端</h1>
-        <p>警告：放弃常规的 MBTI 吧，那玩意儿测不出你的牛马成色和发癫程度。<br>请选择你要跃迁的“草台班子副本”，直面你灵魂深处的真实内核。</p>
+        <p>警告：放弃常规的 MBTI 吧，那玩意儿测不出你的发癫程度。<br>请选择你要跃迁的“草台班子副本”，直面你灵魂深处的真实内核。</p>
       </header>
 
       <div class="hub-grid" id="hubGrid">
@@ -281,21 +281,21 @@
 
         <div class="hub-card" data-theme="sbti" style="--theme-color: var(--color-sbti); --soft-color: #fee2e2;">
           <div class="hub-card-icon">⚔️</div>
-          <h2>SBTI 圣杯战争</h2>
+          <h2>HBTI 圣杯战争</h2>
           <p><strong>测测你的隐藏职阶。</strong><br>别做梦召唤吾王了，直面潜意识灵基，看看你是冠位还是炮灰！</p>
           <div class="hub-card-btn">灵基展开 (确认从者定位)</div>
         </div>
 
         <div class="hub-card" data-theme="hbti" style="--theme-color: var(--color-hbti); --soft-color: #e0e7ff;">
           <div class="hub-card-icon">🦉</div>
-          <h2>HBTI 霍格沃茨</h2>
+          <h2>HBTI 魔法学院</h2>
           <p><strong>测测你是不是个哑炮。</strong><br>猫头鹰迷路了？来测测你到底是哪家学院的漏网之鱼。</p>
           <div class="hub-card-btn">挥动魔杖 (窥探魔法内核)</div>
         </div>
 
         <div class="hub-card" data-theme="srti" style="--theme-color: var(--color-srti); --soft-color: #ede9fe;">
           <div class="hub-card-icon">🚂</div>
-          <h2>SRTI 星穹铁道</h2>
+          <h2>SRTI 银河列车</h2>
           <p><strong>银河街溜子直招。</strong><br>快来让星神看看你的脑回路有多清奇，阿哈看了都得点赞。</p>
           <div class="hub-card-btn">跃迁开始 (锁定星神命途)</div>
         </div>
@@ -655,7 +655,7 @@
         sub = ui.calcSubDrunk;
         special = true;
       } else if (bestNormal.similarity < 60) {
-        // 注意：为兼容霍格沃茨(HBTI)将 HHHH 改为了 Joker 等兜底名称，我们直接取 TYPE_LIBRARY 的倒数第二个或约定键
+        // 注意：为兼容魔法学院(HBTI)将 HHHH 改为了 Joker 等兜底名称，我们直接取 TYPE_LIBRARY 的倒数第二个或约定键
         // 安全起见，如果找不着 HHHH，则尝试 Joker 或 ALIEN
         let bottomKey = "HHHH";
         if(!TestData.TYPE_LIBRARY[bottomKey]) bottomKey = "Joker";

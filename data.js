@@ -3,10 +3,10 @@
 const TestData = {
   // 1. 网页 UI 及通用文本配置
   ui: {
-    pageTitle: "SBTI 人格测试",
+    pageTitle: "HBTI 人格测试",
     
     // 首页文本
-    homeTitle: "MBTI已经过时，SBTI来了。",
+    homeTitle: "MBTI已经过时，HBTI来了。",
     authorText: "原作者：",
     authorName: "B站@蛆肉儿串儿",
     reauthorName: "B站@厨厨",
