@@ -525,15 +525,15 @@ const TestData = {
 
   // 8. 人格配图映射 (严格保留原引用名，以防 404，如果服务器没有对应图片，会自动隐藏)
   TYPE_IMAGES: {
-    "KING": "image/cbti/KING.png", "POT": "image/cbti/POT.png", "FISH": "image/cbti/FISH.png",
-    "BOSS": "image/cbti/BOSS.png", "BUDDHA": "image/cbti/BUDDHA.png", "SAFE": "image/cbti/SAFE.png",
-    "FAST": "image/cbti/FAST.png", "IDOL": "image/cbti/IDOL.png", "PARTY": "image/cbti/PARTY.png",
-    "MUM": "image/cbti/MUM.png", "PPT": "image/cbti/PPT.png", "NPC": "image/cbti/NPC.png",
-    "MONKEY": "image/cbti/MONKEY.png", "JOKER": "image/cbti/JOKER.png", "GOSSIP": "image/cbti/GOSSIP.png",
-    "ARCH": "image/cbti/ARCH.png", "HATER": "image/cbti/HATER.png", "GHOST": "image/cbti/GHOST.png",
-    "COW": "image/cbti/COW.png", "ZEN": "image/cbti/ZEN.png", "FREE": "image/cbti/FREE.png",
-    "WOLF": "image/cbti/WOLF.png", "LAW": "image/cbti/LAW.png", "ZOMBIE": "image/cbti/ZOMBIE.png",
-    "EMO": "image/cbti/EMO.png", "ALIEN": "image/cbti/ALIEN.png", "PSYCHO": "image/cbti/PSYCHO.png"
+    "KING": "image/cbti/KING.jpg", "POT": "image/cbti/POT.jpg", "FISH": "image/cbti/FISH.jpg",
+    "BOSS": "image/cbti/BOSS.jpg", "BUDDHA": "image/cbti/BUDDHA.jpg", "SAFE": "image/cbti/SAFE.jpg",
+    "FAST": "image/cbti/FAST.jpg", "IDOL": "image/cbti/IDOL.jpg", "PARTY": "image/cbti/PARTY.jpg",
+    "MUM": "image/cbti/MUM.jpg", "PPT": "image/cbti/PPT.jpg", "NPC": "image/cbti/NPC.jpg",
+    "MONKEY": "image/cbti/MONKEY.jpg", "JOKER": "image/cbti/JOKER.jpg", "GOSSIP": "image/cbti/GOSSIP.jpg",
+    "ARCH": "image/cbti/ARCH.jpg", "HATER": "image/cbti/HATER.jpg", "GHOST": "image/cbti/GHOST.jpg",
+    "COW": "image/cbti/COW.jpg", "ZEN": "image/cbti/ZEN.jpg", "FREE": "image/cbti/FREE.jpg",
+    "WOLF": "image/cbti/WOLF.jpg", "LAW": "image/cbti/LAW.jpg", "ZOMBIE": "image/cbti/ZOMBIE.jpg",
+    "EMO": "image/cbti/EMO.jpg", "ALIEN": "image/cbti/ALIEN.jpg", "PSYCHO": "image/cbti/PSYCHO.jpg"
   },
 
   // 9. 人格向量匹配库 (重点：这里的 code 已全部同步为最新命名！)

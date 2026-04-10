@@ -526,15 +526,15 @@ const TestData = {
 
   // 8. 人格配图映射 (严格保留原引用名，前端兼容无压力)
   TYPE_IMAGES: {
-    "Saber": "image/hwti/Saber.png", "Archer": "image/hwti/Archer.png", "Lancer": "image/hwti/Lancer.png",
-    "Rider": "image/hwti/Rider.png", "Caster": "image/hwti/Caster.png", "Ruler": "image/hwti/Ruler.png",
-    "Avenger": "image/hwti/Avenger.png", "Shielder": "image/hwti/Shielder.png", "Pretender": "image/hwti/Pretender.png",
-    "Foreigner": "image/hwti/Foreigner.png", "Faker": "image/hwti/Faker.png", "Saver": "image/hwti/Saver.png",
-    "Watcher": "image/hwti/Watcher.png", "Gunner": "image/hwti/Gunner.png", "Gatekeeper": "image/hwti/Gatekeeper.png",
-    "Traveler": "image/hwti/Traveler.png", "Master": "image/hwti/Master.png", "Maker": "image/hwti/Maker.png",
-    "Seeker": "image/hwti/Seeker.png", "Wanderer": "image/hwti/Wanderer.png", "Sinner": "image/hwti/Sinner.png",
-    "Observer": "image/hwti/Observer.png", "Dreamer": "image/hwti/Dreamer.png", "Punisher": "image/hwti/Punisher.png",
-    "Healer": "image/hwti/Healer.png", "Joker": "image/hwti/Joker.png", "DRUNK": "image/hwti/DRUNK.png"
+    "Saber": "image/hwti/Saber.jpg", "Archer": "image/hwti/Archer.jpg", "Lancer": "image/hwti/Lancer.jpg",
+    "Rider": "image/hwti/Rider.jpg", "Caster": "image/hwti/Caster.jpg", "Ruler": "image/hwti/Ruler.jpg",
+    "Avenger": "image/hwti/Avenger.jpg", "Shielder": "image/hwti/Shielder.jpg", "Pretender": "image/hwti/Pretender.jpg",
+    "Foreigner": "image/hwti/Foreigner.jpg", "Faker": "image/hwti/Faker.jpg", "Saver": "image/hwti/Saver.jpg",
+    "Watcher": "image/hwti/Watcher.jpg", "Gunner": "image/hwti/Gunner.jpg", "Gatekeeper": "image/hwti/Gatekeeper.jpg",
+    "Traveler": "image/hwti/Traveler.jpg", "Master": "image/hwti/Master.jpg", "Maker": "image/hwti/Maker.jpg",
+    "Seeker": "image/hwti/Seeker.jpg", "Wanderer": "image/hwti/Wanderer.jpg", "Sinner": "image/hwti/Sinner.jpg",
+    "Observer": "image/hwti/Observer.jpg", "Dreamer": "image/hwti/Dreamer.jpg", "Punisher": "image/hwti/Punisher.jpg",
+    "Healer": "image/hwti/Healer.jpg", "Joker": "image/hwti/Joker.jpg", "DRUNK": "image/hwti/DRUNK.jpg"
   },
 
   // 9. 人格向量匹配库 (严丝合缝匹配原引擎逻辑，无结构改动，保证100%兼容)

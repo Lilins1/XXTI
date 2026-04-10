@@ -526,20 +526,20 @@ const TestData = {
 
   // 8. 人格配图映射 (不变，严格兼容你的 Python 生成脚本前缀)
   TYPE_IMAGES: {
-    "Trailblazer": "image/srti/Trailblazer.png", "Galaxy Ranger": "image/srti/Galaxy_Ranger.png", 
-    "Cloud Knight": "image/srti/Cloud_Knight.png", "Nameless": "image/srti/Nameless.png", 
-    "Genius Society": "image/srti/Genius_Society.png", "Arbitrator": "image/srti/Arbitrator.png", 
-    "Annihilation Gang": "image/srti/Annihilation_Gang.png", "Architect": "image/srti/Architect.png", 
-    "Masked Fool": "image/srti/Masked_Fool.png", "Memokeeper": "image/srti/Memokeeper.png", 
-    "Fictionologist": "image/srti/Fictionologist.png", "Mourning Actor": "image/srti/Mourning_Actor.png", 
-    "Observer": "image/srti/Observer.png", "IPC Worker": "image/srti/IPC_Worker.png", 
-    "Bloodhound": "image/srti/Bloodhound.png", "Wanderer": "image/srti/Wanderer.png", 
-    "Family Head": "image/srti/Family_Head.png", "Intelligentsia Guild": "image/srti/Intelligentsia_Guild.png", 
-    "Elixir Seeker": "image/srti/Elixir_Seeker.png", "Stellaron Hunter": "image/srti/Stellaron_Hunter.png", 
-    "Self-Annihilator": "image/srti/Self-Annihilator.png", "Garden of Recollection": "image/srti/Garden_of_Recollection.png", 
-    "Dreammaker": "image/srti/Dreammaker.png", "Ten-Lords Judge": "image/srti/Ten-Lords_Judge.png", 
-    "Abundance": "image/srti/Abundance.png", "Aha Fanatic": "image/srti/Aha_Fanatic.png", 
-    "Mara-Struck": "image/srti/Mara-Struck.png"
+    "Trailblazer": "image/srti/Trailblazer.jpg", "Galaxy Ranger": "image/srti/Galaxy_Ranger.jpg", 
+    "Cloud Knight": "image/srti/Cloud_Knight.jpg", "Nameless": "image/srti/Nameless.jpg", 
+    "Genius Society": "image/srti/Genius_Society.jpg", "Arbitrator": "image/srti/Arbitrator.jpg", 
+    "Annihilation Gang": "image/srti/Annihilation_Gang.jpg", "Architect": "image/srti/Architect.jpg", 
+    "Masked Fool": "image/srti/Masked_Fool.jpg", "Memokeeper": "image/srti/Memokeeper.jpg", 
+    "Fictionologist": "image/srti/Fictionologist.jpg", "Mourning Actor": "image/srti/Mourning_Actor.jpg", 
+    "Observer": "image/srti/Observer.jpg", "IPC Worker": "image/srti/IPC_Worker.jpg", 
+    "Bloodhound": "image/srti/Bloodhound.jpg", "Wanderer": "image/srti/Wanderer.jpg", 
+    "Family Head": "image/srti/Family_Head.jpg", "Intelligentsia Guild": "image/srti/Intelligentsia_Guild.jpg", 
+    "Elixir Seeker": "image/srti/Elixir_Seeker.jpg", "Stellaron Hunter": "image/srti/Stellaron_Hunter.jpg", 
+    "Self-Annihilator": "image/srti/Self-Annihilator.jpg", "Garden of Recollection": "image/srti/Garden_of_Recollection.jpg", 
+    "Dreammaker": "image/srti/Dreammaker.jpg", "Ten-Lords Judge": "image/srti/Ten-Lords_Judge.jpg", 
+    "Abundance": "image/srti/Abundance.jpg", "Aha Fanatic": "image/srti/Aha_Fanatic.jpg", 
+    "Mara-Struck": "image/srti/Mara-Struck.jpg"
   },
 
   // 9. 人格向量匹配库 (已彻底将 Code 映射替换为星穹铁道对应名称)
