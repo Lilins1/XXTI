@@ -33,7 +33,7 @@ const TestData = {
     authorName: "赛博打工人",
     reauthorName: "职场NPC",
     reauthorLink: "https://space.bilibili.com/",
-    authorLink: "https://space.bilibili.com/",
+    authorLink: "https://space.bilibili.com/389145939",
     hostText: "服务器状态：老板拔了网线",
     domainText: "归属地：你的工位",
     
@@ -491,7 +491,7 @@ const TestData = {
       ]
     }
   ],
-  
+
 // 7. 人格结果库 (键名已严格对照 TYPE_IMAGES 和内部 code 修正)
   TYPE_LIBRARY: {
     "KING": { code: "KING", cn: "卷王之王", intro: "只要卷不死，就往死里卷。", desc: "恭喜您，您测出了全公司最让同事痛恨的人格——【卷王之王】！你不是来打工的，你是来超度同事的。别人眼里的996是折磨，你眼里的996是福报的起跑线。你不仅把老板画的饼吃了，还顺便帮他烙了十张新的。你的字典里没有退缩，只有“收到，立刻跟进”。你是整个草台班子最粗的承重墙，老板深夜看到你在线的头像，都会流下感动的泪水。" },
