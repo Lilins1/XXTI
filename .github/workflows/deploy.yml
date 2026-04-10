@@ -6,7 +6,7 @@ on:
       - main # 如果你的主分支叫 master，请把这里改成 master
   pull_request:
     branches:
-      - main # 同上
+      - main 
 
 jobs:
   deploy:
@@ -16,11 +16,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # 依然需要 Node.js 环境来安装腾讯云的 CLI 工具
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+
+    # 【关键步骤】：专门为你的纯静态项目写的，把需要的文件拿出来放到 dist 文件夹
+    - name: Prepare deploy files
+      run: |
+        mkdir dist
+        cp *.html dist/
+        cp *.js dist/
+        cp -r image/ dist/ || true
 
     - name: Install CloudBase CLI
       run: npm install -g @cloudbase/cli
@@ -28,6 +35,6 @@ jobs:
     - name: Login CloudBase CLI
       run: tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
 
-    # 注意这里：直接部署当前目录 (./) 到云端的根目录 (/)
+    # 【关键步骤】：把干净的 dist 文件夹直接部署到云端根目录 (/)
     - name: Deploy to CloudBase Static Hosting
-      run: tcb hosting deploy ./ / -e ${{ secrets.TCB_ENV_ID }}
+      run: tcb hosting deploy ./dist / -e ${{ secrets.TCB_ENV_ID }}
